@@ -1,0 +1,25 @@
+{
+  "name": "hash-gen-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yenom/hash-gen-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yenom/hash-gen-web/issues"
+  },
+  "homepage": "https://github.com/yenom/hash-gen-web#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.1.1"
+  }
+}
