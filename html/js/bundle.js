@@ -1,40 +1,4 @@
 (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
-var sha256 = require('js-sha256');
-var $ = require('jquery');
-
-function hash(m, n) {
-  return sha256(m + n.toString())
-}
-
-function compute_hash() {
-  var blockhash = $('#latest-block-hash').val();
-  var nonce = $('#nonce').val();
-  var h = hash(blockhash, nonce);
-  var message = "Result: \n" + h;
-  alert(message);
-}
-
-$.getJSON( "https://bch-bitcore3.trezor.io/api/blocks?limit=1", function( data ) {
-  console.log(data['blocks']);
-  var blockhash = data['blocks'][0]["hash"];
-  $('#latest-block-hash').html(blockhash)
-});
-
-$('input:visible').eq(0).focus();
-
-$(function(){
-  $('#nonce-form').submit(function(){
-    compute_hash();
-
-    return false;
-  })
-
-  $('#compute').on('click', function() {
-    compute_hash();
-  });
-});
-
-},{"jquery":2,"js-sha256":3}],2:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -10400,7 +10364,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 (function (process,global){
 /**
  * [js-sha256]{@link https://github.com/emn178/js-sha256}
@@ -10922,7 +10886,7 @@ return jQuery;
 })();
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":4}],4:[function(require,module,exports){
+},{"_process":3}],3:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11108,4 +11072,40 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[1]);
+},{}],4:[function(require,module,exports){
+var sha256 = require('js-sha256');
+var $ = require('jquery');
+
+function hash(m, n) {
+  return sha256(m + n.toString())
+}
+
+function compute_hash() {
+  var blockhash = $('#latest-block-hash').val();
+  var nonce = $('#nonce').val();
+  var h = hash(blockhash, nonce);
+  var message = "Result: \n" + h;
+  alert(message);
+}
+
+$.getJSON( "https://bch-bitcore3.trezor.io/api/blocks?limit=1", function( data ) {
+  console.log(data['blocks']);
+  var blockhash = data['blocks'][0]["hash"];
+  $('#latest-block-hash').html(blockhash)
+});
+
+$('input:visible').eq(0).focus();
+
+$(function(){
+  $('#nonce-form').submit(function(){
+    compute_hash();
+
+    return false;
+  })
+
+  $('#compute').on('click', function() {
+    compute_hash();
+  });
+});
+
+},{"jquery":1,"js-sha256":2}]},{},[4]);
