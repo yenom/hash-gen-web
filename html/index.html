@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div class="title"><h1>Hello World!</h1></div>
+  <div class="info">
+    <div class="block-info">
+      <p>Latest Block Hash :</p>
+      <p id='latest-block-hash'>Loading...</p>
+    </div>
+    <div class="difficulty-info">
+      <p>Difficulity Target :</p>
+      <p id='latest-block-hash'>1000000</p>
+    </div>
+  </div>
+  <div>
+    <div>
+      <form action="" id="nonce-form">
+        Nonce:
+        <input type="number" size="30" maxlength="20" id="nonce">(Total number of lottery done today.)
+      </form>
+    </div>
+    <button id="compute">compute SHA256</button>
+  </div>
+</body>
+<script src="./js/bundle.js"></script>
+</html>
